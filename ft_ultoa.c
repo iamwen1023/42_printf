@@ -46,11 +46,6 @@ char    *ft_ultoa(unsigned long n)
     return (arr);
 }
 
-char    *ft_changetobinary(int n)
-{
-
-}
-
 // int main()
 // {
 //     char *s;

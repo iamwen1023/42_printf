@@ -7,6 +7,7 @@
 char	decimal[10] = "0123456789";
 char	octal[8] = "01234567";
 char	hexadecimal[16]="0123456789abcdef";
+char	binary[2] = "01";
 
 long	length(char *src)
 {
@@ -90,6 +91,14 @@ char	*ft_itoa_base(long nb, char *base, long len)
 	return (arr);
 }
 
+void	converttobinary(int i)
+{	char	*arr;
+
+	arr = ft_itoa_base(i, binary, 2);
+	printf("arr binary :%s\n", arr);
+	
+
+}
 
 
 
@@ -98,10 +107,11 @@ char	*ft_itoa_base(long nb, char *base, long len)
 // 	char *arr;
 // 	int i = 016;
 
-// 	arr = ft_itoa_base(i, decimal, 10);
-// 	arr = rev_string(arr);
-// 	printf("arr :%s\n", arr);
-// 	printf("arr :%i\n", i);
+// 	// arr = ft_itoa_base(i, decimal, 10);
+// 	// arr = rev_string(arr);
+// 	// printf("arr :%s\n", arr);
+// 	// printf("arr :%i\n", i);
+// 	converttobinary(32);
 
 // 	return 0;
 // }

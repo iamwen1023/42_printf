@@ -67,13 +67,17 @@ int ft_printf(const char *str, ...)
                 ft_putstr("\n");
             }else if(type == 'u')
             {
-                word = va_arg(args, int);
-                if (word >= 0)
-                    arr_pointer = ft_itoa_base(word, "0123456789", 10);
-                
+                // word = va_arg(args, unsigned int);
+                // printf("word %d\n", word);
+                arr_pointer = ft_itoa_base(va_arg(args, unsigned int), "0123456789", 10);
+                ft_putstr(arr_pointer);
+                ft_putstr("\n");
+            }
+            else if (type == 'x')
+            {
                 printf("have not tested!\n");
             }
-            else 
+            else
             {
                 printf("have not tested!\n");
             }
@@ -87,16 +91,16 @@ int ft_printf(const char *str, ...)
 }
 
 int main () {
-   long t;
+   int t;
    int *p;
    char *arr;
 
-   t = -4294967294;
+   t = -8;
 //    p = &s;
 //    arr= ft_itoa((unsigned long long)p);
 
    // ft_printf("le mine: %p\n", &s);
-    
+    ft_printf("le mine: %u\n", t);
     printf("original printf :%u\n", t);
 
 

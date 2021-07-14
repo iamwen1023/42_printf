@@ -1,8 +1,18 @@
-#include <stdlib.h>
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_ultoa.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wlo <marvin@42.fr>                         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/14 15:52:03 by wlo               #+#    #+#             */
+/*   Updated: 2021/07/14 15:52:06 by wlo              ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
 
 char    hex[16]="0123456789abcdef";
-
 
 long    digit_count(unsigned long n)
 {
@@ -45,12 +55,3 @@ char    *ft_ultoa(unsigned long n)
     ft_ultoa_2(n, len, &arr);
     return (arr);
 }
-
-// int main()
-// {
-//     char *s;
-//     unsigned long long test = 3343456782371;
-
-//     s = ft_itoa(test);
-//     printf("result : %s\n",s);
-// }

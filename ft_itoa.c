@@ -1,8 +1,16 @@
-# include <stddef.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wlo <marvin@42.fr>                         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/14 15:51:24 by wlo               #+#    #+#             */
+/*   Updated: 2021/07/14 15:51:32 by wlo              ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "ft_printf.h"
 
 char	decimal[10] = "0123456789";
 char	octal[8] = "01234567";
@@ -19,7 +27,7 @@ long	length(char *src)
 	return (i);
 }
 
-int		digit_lenght(long nb, long len)
+long 	digit_lenght(long nb, long len)
 {
 	long size;
 
@@ -52,7 +60,7 @@ char	*ft_itoa_base2(long nb, long len, char *arr, char *base)
 char	*rev_string(char *arr)
 {
 	int		i;
-	int		len;
+	long 	len;
 	char	c;
 
 	i = 0;
@@ -90,28 +98,3 @@ char	*ft_itoa_base(long nb, char *base, long len)
 	arr = rev_string(arr);
 	return (arr);
 }
-
-void	converttobinary(int i)
-{	char	*arr;
-
-	arr = ft_itoa_base(i, binary, 2);
-	printf("arr binary :%s\n", arr);
-	
-
-}
-
-
-
-// int main()
-// {
-// 	char *arr;
-// 	int i = 016;
-
-// 	// arr = ft_itoa_base(i, decimal, 10);
-// 	// arr = rev_string(arr);
-// 	// printf("arr :%s\n", arr);
-// 	// printf("arr :%i\n", i);
-// 	converttobinary(32);
-
-// 	return 0;
-// }

@@ -3,23 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wlo <marvin@42.fr>                         +#+  +:+       +#+        */
+/*   By: wlo <wlo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 15:51:24 by wlo               #+#    #+#             */
-/*   Updated: 2021/07/14 15:51:32 by wlo              ###   ########.fr       */
+/*   Updated: 2021/07/15 15:20:06 by wlo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	decimal[10] = "0123456789";
-char	octal[8] = "01234567";
-char	hexadecimal[16]="0123456789abcdef";
-char	binary[2] = "01";
-
 long	length(char *src)
 {
-	long i;
+	long	i;
 
 	i = 0;
 	while (src[i] != '\0')
@@ -27,9 +22,9 @@ long	length(char *src)
 	return (i);
 }
 
-long 	digit_lenght(long nb, long len)
+long	digit_lenght(long nb, long len)
 {
-	long size;
+	long	size;
 
 	size = 1;
 	if (nb < 0)
@@ -44,7 +39,7 @@ long 	digit_lenght(long nb, long len)
 
 char	*ft_itoa_base2(long nb, long len, char *arr, char *base)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (nb >= len)
@@ -60,7 +55,7 @@ char	*ft_itoa_base2(long nb, long len, char *arr, char *base)
 char	*rev_string(char *arr)
 {
 	int		i;
-	long 	len;
+	long	len;
 	char	c;
 
 	i = 0;
@@ -89,7 +84,8 @@ char	*ft_itoa_base(long nb, char *base, long len)
 		sign = 1;
 		nb = nb * (-1);
 	}
-	if (!(arr = (char*)malloc(sizeof(char) * (length_nb + 1))))
+	arr = (char *)malloc(sizeof(char) * (length_nb + 1));
+	if (!arr)
 		return (0);
 	arr = ft_itoa_base2(nb, len, arr, base);
 	if (sign == 1)

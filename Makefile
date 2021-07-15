@@ -1,4 +1,4 @@
-SRCS		= ft_itoa.c ft_printf.c ft_ultoa.c 		
+SRCS		= ft_itoa.c ft_printf.c ft_ultoa.c ft_writout.c 		
 INCS		= ft_printf.h
 OBJS        = $(SRCS:.c=.o)
 CFLAGS		= -Wall -Wextra -Werror

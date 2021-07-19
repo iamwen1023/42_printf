@@ -6,7 +6,7 @@
 /*   By: wlo <wlo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 15:51:46 by wlo               #+#    #+#             */
-/*   Updated: 2021/07/15 15:48:47 by wlo              ###   ########.fr       */
+/*   Updated: 2021/07/17 19:08:45 by wlo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	ft_putstr(char *s);
 int		ft_strlen(const char *s);
 int		ft_printf_forchar(int return_value, va_list args, char spec);
 int		ft_printf_foritoa(int return_value, va_list args, char spec);
+int		ft_printf_foritoa_x(int return_value, va_list args, char spec);
 int		ft_printf_forpointer(int return_value, va_list args);
 int		ft_printf_char(char c, int return_value);
 int		ft_printf_real(const char *str, va_list args, int return_value);

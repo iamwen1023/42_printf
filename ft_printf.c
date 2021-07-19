@@ -6,37 +6,18 @@
 /*   By: wlo <wlo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 15:51:39 by wlo               #+#    #+#             */
-/*   Updated: 2021/07/15 15:48:56 by wlo              ###   ########.fr       */
+/*   Updated: 2021/07/19 15:57:21 by wlo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	g_hex[16] = "0123456789abcdef";
-char	g_dec[10] = "0123456789";
-
-int	ft_printf_forchar(int return_value, va_list args, char spec)
-{
-	char	*arr_pointer;
-
-	if (spec == 'c')
-	{
-		ft_putchar(va_arg(args, int));
-		return_value++;
-	}
-	else
-	{
-		arr_pointer = va_arg(args, char *);
-		ft_putstr(arr_pointer);
-		return_value = ft_strlen(arr_pointer) + return_value;
-	}
-	return (return_value);
-}
-
 int	ft_printf_foritoa(int return_value, va_list args, char spec)
 {
 	char	*arr_pointer;
+	char	*g_dec;
 
+	g_dec = "0123456789";
 	if (spec == 'i' || spec == 'd')
 	{
 		arr_pointer = ft_itoa_base(va_arg(args, int), g_dec, 10);
@@ -51,9 +32,27 @@ int	ft_printf_foritoa(int return_value, va_list args, char spec)
 		return_value = ft_strlen(arr_pointer) + return_value;
 		free(arr_pointer);
 	}
-	else if (spec == 'x')
+	return (return_value);
+}
+
+int	ft_printf_foritoa_x(int return_value, va_list args, char spec)
+{
+	char	*arr_pointer;
+	char	*g_hex;
+	char	*g_HEX;
+
+	g_hex = "0123456789abcdef";
+	g_HEX = "0123456789ABCDEF";
+	if (spec == 'x')
 	{
 		arr_pointer = ft_itoa_base(va_arg(args, unsigned int), g_hex, 16);
+		ft_putstr(arr_pointer);
+		return_value = ft_strlen(arr_pointer) + return_value;
+		free(arr_pointer);
+	}
+	else
+	{	
+		arr_pointer = ft_itoa_base(va_arg(args, unsigned int), g_HEX, 16);
 		ft_putstr(arr_pointer);
 		return_value = ft_strlen(arr_pointer) + return_value;
 		free(arr_pointer);
@@ -88,15 +87,16 @@ int	ft_printf_real(const char *str, va_list args, int return_value)
 				return_value = ft_printf_forchar(return_value, args, spec);
 			else if (spec == 'p')
 				return_value = ft_printf_forpointer(return_value, args);
-			else if (spec == 'i' || spec == 'd' || spec == 'u' || spec == 'x')
+			else if (spec == 'i' || spec == 'd' || spec == 'u')
 				return_value = ft_printf_foritoa(return_value, args, spec);
+			else if (spec == 'x' || spec == 'X')
+				return_value = ft_printf_foritoa_x(return_value, args, spec);
 			else
 				return_value = ft_printf_char(*str, return_value);
 			str++;
 		}
 		str++;
 	}
-	va_end(args);
 	return (return_value);
 }
 

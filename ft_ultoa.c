@@ -12,6 +12,8 @@
 
 #include "ft_printf.h"
 
+// g_hex[16] = "0123456789abcdef";
+
 long	digit_count(unsigned long n)
 {
 	int	len;
@@ -28,7 +30,9 @@ long	digit_count(unsigned long n)
 void	ft_ultoa_2(unsigned long long_n, long len, char **arr)
 {
 	long	i;
+	char	*g_hex;
 
+	g_hex = "0123456789abcdef";
 	i = len - 1;
 	while (long_n >= 16)
 	{
@@ -51,4 +55,22 @@ char	*ft_ultoa(unsigned long n)
 		return (0);
 	ft_ultoa_2(n, len, &arr);
 	return (arr);
+}
+
+int	ft_printf_forchar(int return_value, va_list args, char spec)
+{
+	char	*arr_pointer;
+
+	if (spec == 'c')
+	{
+		ft_putchar(va_arg(args, int));
+		return_value++;
+	}
+	else
+	{
+		arr_pointer = va_arg(args, char *);
+		ft_putstr(arr_pointer);
+		return_value = ft_strlen(arr_pointer) + return_value;
+	}
+	return (return_value);
 }

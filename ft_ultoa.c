@@ -6,7 +6,7 @@
 /*   By: wlo <wlo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 15:52:03 by wlo               #+#    #+#             */
-/*   Updated: 2021/07/15 15:50:07 by wlo              ###   ########.fr       */
+/*   Updated: 2021/07/22 14:48:10 by wlo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,20 +57,22 @@ char	*ft_ultoa(unsigned long n)
 	return (arr);
 }
 
-int	ft_printf_forchar(int return_value, va_list args, char spec)
+int	ft_printf_forchar(int return_va, va_list args, char spec)
 {
 	char	*arr_pointer;
 
 	if (spec == 'c')
 	{
 		ft_putchar(va_arg(args, int));
-		return_value++;
+		return_va++;
 	}
 	else
 	{
 		arr_pointer = va_arg(args, char *);
+		if (!arr_pointer)
+			arr_pointer = "(null)";
 		ft_putstr(arr_pointer);
-		return_value = ft_strlen(arr_pointer) + return_value;
+		return_va = ft_strlen(arr_pointer) + return_va;
 	}
-	return (return_value);
+	return (return_va);
 }

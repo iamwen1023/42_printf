@@ -6,7 +6,7 @@
 /*   By: wlo <wlo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 15:51:46 by wlo               #+#    #+#             */
-/*   Updated: 2021/07/17 19:08:45 by wlo              ###   ########.fr       */
+/*   Updated: 2021/07/22 14:49:09 by wlo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ char	ft_strchr(const char *s, int c);
 void	ft_putchar(char c);
 void	ft_putstr(char *s);
 int		ft_strlen(const char *s);
-int		ft_printf_forchar(int return_value, va_list args, char spec);
-int		ft_printf_foritoa(int return_value, va_list args, char spec);
-int		ft_printf_foritoa_x(int return_value, va_list args, char spec);
-int		ft_printf_forpointer(int return_value, va_list args);
-int		ft_printf_char(char c, int return_value);
-int		ft_printf_real(const char *str, va_list args, int return_value);
+int		ft_printf_forchar(int return_va, va_list args, char spec);
+int		ft_printf_foritoa(int return_va, va_list args, char spec);
+int		ft_printf_foritoa_x(int return_va, va_list args, char spec);
+int		ft_printf_forpointer(int return_va, va_list args);
+int		ft_printf_char(char c, int return_va);
+int		ft_printf_real(const char *str, va_list args, int return_va, char spec);
 int		ft_printf(const char *str, ...);
 
 long	digit_count(unsigned long n);

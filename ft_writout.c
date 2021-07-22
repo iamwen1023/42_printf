@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_writout.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wlo <marvin@42.fr>                         +#+  +:+       +#+        */
+/*   By: wlo <wlo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 15:35:13 by wlo               #+#    #+#             */
-/*   Updated: 2021/07/15 15:35:24 by wlo              ###   ########.fr       */
+/*   Updated: 2021/07/22 14:48:35 by wlo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_putstr(char *s)
 	int	i;
 
 	i = 0;
-	if (!s)
+	if (s == 0)
 		return ;
 	while (s[i] != '\0')
 		i++;
@@ -45,6 +45,8 @@ int	ft_strlen(const char *s)
 	int	length;
 
 	length = 0;
+	if (!s)
+		return (0);
 	while (*s)
 	{
 		++length;
@@ -53,8 +55,8 @@ int	ft_strlen(const char *s)
 	return (length);
 }
 
-int	ft_printf_char(char c, int return_value)
+int	ft_printf_char(char c, int return_va)
 {
 	ft_putchar(c);
-	return (++return_value);
+	return (++return_va);
 }

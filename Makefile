@@ -18,8 +18,8 @@ so:
 		$(CC) -fPIC $(CFLAGS) $(SRCS)
 		gcc -shared -o libftprintf.so $(OBJS)
 cleanso:
-		rm *.o
-		rm -f libftprintf.so
+		$(RM) *.o
+		$(RM) libftprintf.so
 clean:
 		$(RM) $(OBJS)
 

@@ -6,7 +6,7 @@
 /*   By: wlo <wlo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 15:51:46 by wlo               #+#    #+#             */
-/*   Updated: 2021/07/22 14:49:09 by wlo              ###   ########.fr       */
+/*   Updated: 2021/07/22 15:03:03 by wlo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
-
-# include <stdio.h>
 
 char	ft_strchr(const char *s, int c);
 void	ft_putchar(char c);
